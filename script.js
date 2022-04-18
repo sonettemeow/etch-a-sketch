@@ -20,7 +20,7 @@ function createGrid(size) {
             cell.style.margin = '0px';
             cell.style.width = '100%';
             cell.style.boxSizing = 'border-box';
-            divRow.appendChild(cell);
+            divRow.appendChild(cell).classList.add('block');
             }
 
         const brk = document.createElement('div');
