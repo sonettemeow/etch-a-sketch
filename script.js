@@ -16,7 +16,7 @@ function createGrid(size) {
 
         for (let j = 0; j < size; j++) { 
             const cell = document.createElement('div');  
-            cell.style.border = '1px solid pink';
+            cell.style.border = '1px solid #101010';
             cell.style.margin = '0px';
             cell.style.width = '100%';
             cell.style.boxSizing = 'border-box';
