@@ -1,32 +1,35 @@
-//let howMany = prompt('How many squares?');
+//let size = prompt('How many squares?');
 
 const container = document.querySelector('.gridbox');
-const row = document.querySelector('.row');
+const clearBtn = document.getElementById('clear');
+const rgbBtn = document.getElementById('rgb');
+const bwgBtn = document.getElementById('bwg');
 
-const numbah = 5;
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
+        const divRow = document.createElement('div');
+        divRow.style.display = 'flex';
+        divRow.style.flexGrow = '1';
+        divRow.style.backgroundColor = 'white';
+        divRow.style.boxSizing = 'border-box';
+        container.appendChild(divRow);
 
-for (let i = 0; i < numbah; i++) {
-    const div = document.createElement('div');
-    div.style.border = '2px solid blue';
-    div.style.margin = '1px';
-    div.style.width = '100%';
-    row.appendChild(div);
+        for (let j = 0; j < size; j++) { 
+            const cell = document.createElement('div');  
+            cell.style.border = '1px solid black';
+            cell.style.margin = '0px';
+            cell.style.width = '100%';
+            cell.style.boxSizing = 'border-box';
+            divRow.appendChild(cell);
+            }
+
+        const brk = document.createElement('div');
+        brk.style.border = '0px';
+        brk.style.margin = '0px';
+        brk.style.height = '0%';
+        brk.style.width = '100%';
+        brk.style.boxSizing = 'border-box';
+        container.appendChild(brk);
+    }
 }
-const brk = document.createElement('div');
-brk.style.border = '1px solid white';
-brk.style.margin = '1px';
-brk.style.height = '0%';
-brk.style.width = '100%';
-container.appendChild(brk);
-
-// for (let rows = 0; rows < howMany; rows++) {
-//     for (let columns = 0; columns < howMany; columns++) {
-//         let square = document.createElement('div');
-//         square.innerHTML = "here's one";
-//         container.appendChild(square);
-//         square.style.backgroundColor = 'white';
-//         square.style.display = 'inline-block';
-//         //square.style.display = 'flex';
-//         //square.style.flexWrap = 'wrap';
-//     }
-// }
+createGrid(20);

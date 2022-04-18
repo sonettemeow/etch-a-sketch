@@ -1,33 +1,38 @@
 html {
     height: 100vh;
     background-color: rgb(27, 27, 27);
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
-  }
-  
-  .main {
+}
+
+.main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: azure;
     text-align: center;
-  }
-  
-  .gridbox {
+}
+
+.gridbox {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
-    height: 500px;
-  }
+    width: 450px;
+    height: 450px;
+}
 
-  .row {
-      display: flex;
+.btn {
+    display: inline-flex;
+    margin-top: 15px;
+    gap: 80px;
+}
 
-  }
+#clear {
+    margin-top: 30px;
+}
