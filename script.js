@@ -2,7 +2,7 @@
 
 const container = document.querySelector('.gridbox');
 const clearBtn = document.getElementById('clear');
-const rgbBtn = document.getElementById('rgb');
+const rgbBtn = document.getElementById('rgb').addEventListener('click', rgb);
 const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
 const pinkBtn = document.getElementById('pink');
 
@@ -41,13 +41,20 @@ function bwg(e) {
     const blocks = container.querySelectorAll('.block');
     blocks.forEach(block => block.addEventListener('mouseover', () => {
         let ran = Math.floor(Math.random() * 256);
-        let gray = `rgb(${ran}, ${ran}, ${ran})`;
+        const gray = `rgb(${ran}, ${ran}, ${ran})`;
         block.style.backgroundColor = gray;
     }))
 }
 
 function rgb(e) {
-
+    const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.addEventListener('mouseover', () => {
+        let R = Math.floor(Math.random() * 255);
+        let G = Math.floor(Math.random() * 255);
+        let B = Math.floor(Math.random() * 255);
+        const RGB = `rgb(${R}, ${G}, ${B})`;
+        block.style.backgroundColor = RGB;
+    }))
 }
 
 function pink(e) {
