@@ -1,7 +1,7 @@
 //let size = prompt('How many squares?');
 
 const container = document.querySelector('.gridbox');
-const clearBtn = document.getElementById('clear');
+const clearBtn = document.getElementById('clear').addEventListener('click', clearGrid);
 const rgbBtn = document.getElementById('rgb').addEventListener('click', rgb);
 const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
 const pinkBtn = document.getElementById('pink').addEventListener('click', pink);
@@ -12,7 +12,7 @@ function createGrid(size) {
         divRow.style.display = 'flex';
         divRow.style.flexGrow = '1';
         divRow.style.boxSizing = 'border-box';
-        container.appendChild(divRow);
+        container.appendChild(divRow).classList.add('gridRow');
 
         for (let j = 0; j < size; j++) { 
             const cell = document.createElement('div');  
@@ -34,7 +34,8 @@ function createGrid(size) {
 createGrid(30);
 
 function clearGrid(e) {
-    
+    const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.style.backgroundColor = 'white')
 }
 
 function bwg(e) {
