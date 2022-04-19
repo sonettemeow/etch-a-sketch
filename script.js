@@ -5,6 +5,7 @@ const clearBtn = document.getElementById('clear').addEventListener('click', clea
 const rgbBtn = document.getElementById('rgb').addEventListener('click', rgb);
 const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
 const pinkBtn = document.getElementById('pink').addEventListener('click', pink);
+const buttons = document.querySelector('buttons');
 
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -12,7 +13,7 @@ function createGrid(size) {
         divRow.style.display = 'flex';
         divRow.style.flexGrow = '1';
         divRow.style.boxSizing = 'border-box';
-        container.appendChild(divRow).classList.add('gridRow');
+        container.appendChild(divRow);
 
         for (let j = 0; j < size; j++) { 
             const cell = document.createElement('div');  
@@ -35,11 +36,15 @@ createGrid(30);
 
 function clearGrid(e) {
     const blocks = container.querySelectorAll('.block');
-    blocks.forEach(block => block.style.backgroundColor = 'white')
+    blocks.forEach(block => block.style.backgroundColor = 'white');
+    blocks.forEach(block => block.addEventListener('mouseover', () => {
+        block.style.backgroundColor = 'white';
+    }))
 }
 
 function bwg(e) {
     const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.style.backgroundColor = 'white');
     blocks.forEach(block => block.addEventListener('mouseover', () => {
         let ran = Math.floor(Math.random() * 256);
         const gray = `rgb(${ran}, ${ran}, ${ran})`;
@@ -49,6 +54,7 @@ function bwg(e) {
 
 function rgb(e) {
     const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.style.backgroundColor = 'white');
     blocks.forEach(block => block.addEventListener('mouseover', () => {
         let R = Math.floor(Math.random() * 255);
         let G = Math.floor(Math.random() * 255);
@@ -60,6 +66,7 @@ function rgb(e) {
 
 function pink(e) {
     const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.style.backgroundColor = 'white');
     blocks.forEach(block => block.addEventListener('mouseover', () => {
         block.style.backgroundColor = 'rgb(243, 58, 106)';
     }))
