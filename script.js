@@ -2,12 +2,8 @@ function loadPage() {
     let size = prompt('How many boxes? This will be applied to both rows and columns. Enjoy!');
 
     if (size) {
-        if (size > 100 || size < 0) {
+        while (size > 100 || size < 0 || isNaN(size) === true) {
             size = prompt('Please enter a number between 0 and 101.');
-        }
-        
-        if (isNaN(size) === true) {
-            size = prompt('Please enter a number.');
         }
         
         const container = document.querySelector('.gridbox');
@@ -16,7 +12,6 @@ function loadPage() {
         const blackBtn = document.getElementById('black').addEventListener('click', black);
         const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
         const pinkBtn = document.getElementById('pink').addEventListener('click', pink);
-        const buttons = document.querySelector('buttons');
         
         function createGrid(size) {
             for (let i = 0; i < size; i++) {
