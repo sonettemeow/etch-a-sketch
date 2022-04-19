@@ -4,7 +4,7 @@ const container = document.querySelector('.gridbox');
 const clearBtn = document.getElementById('clear');
 const rgbBtn = document.getElementById('rgb').addEventListener('click', rgb);
 const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
-const pinkBtn = document.getElementById('pink');
+const pinkBtn = document.getElementById('pink').addEventListener('click', pink);
 
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -58,5 +58,8 @@ function rgb(e) {
 }
 
 function pink(e) {
-
+    const blocks = container.querySelectorAll('.block');
+    blocks.forEach(block => block.addEventListener('mouseover', () => {
+        block.style.backgroundColor = 'rgb(243, 58, 106)';
+    }))
 }
