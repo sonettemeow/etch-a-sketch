@@ -25,6 +25,7 @@ h1 {
     justify-content: center;
     width: 450px;
     height: 450px;
+    border: 1px solid #a8a7a7;
 }
 
 .buttons {
