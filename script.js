@@ -1,14 +1,19 @@
 function loadPage() {
-    let size = prompt('How many boxes? Will be applied to both rows and columns. Enjoy!');
+    let size = prompt('How many boxes? This will be applied to both rows and columns. Enjoy!');
 
     if (size) {
-        if (size > 100) {
-            size = prompt('Please enter a number from 1-100.');
+        if (size > 100 || size < 0) {
+            size = prompt('Please enter a number between 0 and 101.');
+        }
+        
+        if (isNaN(size) === true) {
+            size = prompt('Please enter a number.');
         }
         
         const container = document.querySelector('.gridbox');
         const clearBtn = document.getElementById('clear').addEventListener('click', clearGrid);
         const rgbBtn = document.getElementById('rgb').addEventListener('click', rgb);
+        const blackBtn = document.getElementById('black').addEventListener('click', black);
         const bwgBtn = document.getElementById('bwg').addEventListener('click', bwg);
         const pinkBtn = document.getElementById('pink').addEventListener('click', pink);
         const buttons = document.querySelector('buttons');
@@ -23,7 +28,7 @@ function loadPage() {
         
                 for (let j = 0; j < size; j++) { 
                     const cell = document.createElement('div');  
-                    cell.style.border = '1px solid #101010';
+                    cell.style.border = '1px solid rgb(100,100,100)';
                     cell.style.backgroundColor = 'white';
                     cell.style.margin = '0px';
                     cell.style.width = '100%';
@@ -48,17 +53,7 @@ function loadPage() {
                 block.style.backgroundColor = 'white';
             }))
         }
-        
-        function bwg(e) {
-            const blocks = container.querySelectorAll('.block');
-            blocks.forEach(block => block.style.backgroundColor = 'white');
-            blocks.forEach(block => block.addEventListener('mouseover', () => {
-                let ran = Math.floor(Math.random() * 256);
-                const gray = `rgb(${ran}, ${ran}, ${ran})`;
-                block.style.backgroundColor = gray;
-            }))
-        }
-        
+
         function rgb(e) {
             const blocks = container.querySelectorAll('.block');
             blocks.forEach(block => block.style.backgroundColor = 'white');
@@ -68,6 +63,24 @@ function loadPage() {
                 let B = Math.floor(Math.random() * 255);
                 const RGB = `rgb(${R}, ${G}, ${B})`;
                 block.style.backgroundColor = RGB;
+            }))
+        }
+
+        function black(e) {
+            const blocks = container.querySelectorAll('.block');
+            blocks.forEach(block => block.style.backgroundColor = 'white');
+            blocks.forEach(block => block.addEventListener('mouseover', () => {
+                block.style.backgroundColor = 'rgb(0, 0, 0)';
+            }))
+        }
+
+        function bwg(e) {
+            const blocks = container.querySelectorAll('.block');
+            blocks.forEach(block => block.style.backgroundColor = 'white');
+            blocks.forEach(block => block.addEventListener('mouseover', () => {
+                let ran = Math.floor(Math.random() * 256);
+                const gray = `rgb(${ran}, ${ran}, ${ran})`;
+                block.style.backgroundColor = gray;
             }))
         }
         

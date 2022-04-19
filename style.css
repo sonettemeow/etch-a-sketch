@@ -25,15 +25,62 @@ h1 {
     justify-content: center;
     width: 450px;
     height: 450px;
-    border: 1px solid #a8a7a7;
+    border: 1px solid rgb(100,100,100);
 }
 
 .buttons {
     display: inline-flex;
+    gap: 69px;
+}
+
+#bwg,
+#black,
+#rgb,
+#pink {
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px 5px 10px;
     margin-top: 30px;
-    gap: 80px;
+    transition-duration: 0.1s;
+    cursor: pointer;
 }
 
 #clear {
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    border: 1px solid rgb(27, 27, 27);
+    border-radius: 2px;
+    padding: 5px 10px 5px 10px;
     margin-top: 30px;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+#bwg:hover {
+    background-color: #686767;
+    color: white;
+}
+
+#black:hover {
+    background-color: black;
+    color: white;
+}
+
+#rgb:hover {
+    background-color: green;
+    color: white;
+}
+
+#pink:hover {
+    background-color: rgb(243, 58, 106);
+    color: white;
+}
+
+#clear:hover {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    border-color: white;
+    border-width: 2px;
 }
